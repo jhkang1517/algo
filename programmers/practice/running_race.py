@@ -3,8 +3,9 @@ def solution(players: list, callings: list):
 
     for c in callings:
         overtaker = dct[c]
-        dct[players[overtaker]] -= 1
-        dct[players[overtaker - 1]] += 1
-        players[overtaker], players[overtaker - 1] = players[overtaker - 1], players[overtaker]
+        overtake_order = 1
+        dct[players[overtaker]] -= overtake_order
+        dct[players[overtaker - overtake_order]] += overtake_order
+        players[overtaker], players[overtaker - overtake_order] = players[overtaker - overtake_order], players[overtaker]
 
     return players
